@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class ClienteCuadrado {
     public static void main(String[] args) {
-        String host = "localhost"; // Cambia si el servidor está en otra máquina
+        String host = "localhost";
         int port = 35000;
 
         try (
@@ -18,10 +18,8 @@ public class ClienteCuadrado {
             System.out.print("Ingrese un número para calcular su cuadrado: ");
             String numero = scanner.nextLine();
 
-            // Enviamos el número al servidor
             out.println(numero);
 
-            // Recibimos la respuesta del servidor
             String respuesta = in.readLine();
             System.out.println("Respuesta del servidor: " + respuesta);
 

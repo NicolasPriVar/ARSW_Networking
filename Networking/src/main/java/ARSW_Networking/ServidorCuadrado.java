@@ -31,7 +31,7 @@ public class ServidorCuadrado {
             try {
                 int numero = Integer.parseInt(inputLine);
                 int square = numero * numero;
-                System.out.println("El cuadrado es: " + square);
+                out.println("El cuadrado de " + numero + " es " + square);
             } catch (NumberFormatException e) {
                 System.out.println("Entrada no válida: " + inputLine);
             }

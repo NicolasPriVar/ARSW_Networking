@@ -97,3 +97,53 @@ cada 5 segundos según los datos del servidor. Si una hora no es recibida debe
 mantener la hora que tenía. Para la prueba se apagará el servidor y después de
 unos segundos se reactivará. El cliente debe seguir funcionando y actualizarse
 cuando el servidor esté nuevamente funcionando.
+
+Este ejercicio se realiza en los archivos HoraCliente.java y HoraServidor.java.
+
+El archivo HoraServer.java crea un servidor UDP que escucha en el puerto 9876. Cada vez que recibe un paquete, obtiene 
+la hora actual con formato HH:mm:ss, la convierte a bytes y la envía de vuelta al cliente que hizo la solicitud.
+Por su parte, HoraCliente.java es un cliente UDP que envía repetidamente la palabra "HORA" al servidor cada 5 segundos.
+Luego espera una respuesta (hasta 2 segundos por intento). Si recibe la hora, la muestra; si no hay respuesta (por ejemplo,
+el servidor no está disponible), muestra un mensaje indicando que se usará la hora previa.
+
+Para que el programa funcione, primero debemos ejecutar el cliente y luego el servidor, dando como resultado:
+
+![img44.png](Imagenes/img44.png)
+
+Se evidencia que carga bien la hora cada 5 segundos y al apagar el servidor, queda mostrando la última hora que se obtuvo.
+
+## 6. CHAT
+
+Utilizando RMI, escriba un aplicativo que pueda conectarse a otro
+aplicativo del mismo tipo en un servidor remoto para comenzar un chat. El
+aplicativo debe solicitar una direcci´on IP y un puerto antes de conectarse con el
+cliente que se desea. Igualmente, debe solicitar un puerto antes de iniciar para
+que publique el objeto que recibe los llamados remotos en dicho puerto.
+
+Para la solución de este ejercicio se usaron los archivos ChatApp.java ChatImpl y ChatInterface.
+
+Este sistema implementa un chat entre dos usuarios usando RMI (Remote Method Invocation) en Java, permitiendo que se
+envíen mensajes en tiempo real a través de la red. En ChatApp.java, al iniciar la aplicación, se le pide al usuario su
+nombre, un puerto para publicar su objeto remoto (ChatImpl), y la información de conexión del otro usuario (IP, puerto y
+nombre). Luego, se registra el objeto remoto (ChatImpl, que implementa ChatInterface) en un registry local y se conecta
+al objeto remoto del otro usuario usando su dirección RMI. Una vez conectados, entra en un bucle donde cada mensaje
+escrito se envía al otro usuario usando el método remoto recibirMensaje.
+
+Para probar este programa, se deben abrir dos terminales en el mismo computador, usa será la de IntelliJ y la otra será 
+la consola de comandos.
+
+![img222.png](Imagenes/img222.png)
+
+![img33.png](Imagenes/img33.png)
+
+Acá podemos ver las dos terminales conectadas, ahora se enviará un mensaje desde ambas y se verá reflejado en el otro chat.
+
+![img55.png](Imagenes/img55.png)
+
+Mensaje enviado por Nicolás
+
+![img2222.png](Imagenes/img2222.png)
+
+Mensaje recibido por Ana.
+
+## FIN
